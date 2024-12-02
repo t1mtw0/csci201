@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "location": "Los Angeles",
+      "temperature": 68,
+      "temperatureMin": 54,
+      "temperatureMax": 72,
+      "humidity": 35,
+      "pressureSeaLevel": 29.80,
+      "visibility": 88.3,
+      "windSpeed": 8.4,
+      "windDirection": 270,
+      "condition": "Sunny"
+    },
+    {
+      "location": "New York",
+      "temperature": 35,
+      "temperatureMin": 23,
+      "temperatureMax": 37,
+      "humidity": 21,
+      "pressureSeaLevel": 28.70,
+      "visibility": 35.3,
+      "windSpeed": 7.4,
+      "windDirection": 165,
+      "condition": "Snow"
+    },
+    {
+      "location": "Chicago",
+      "temperature": 40,
+      "temperatureMin": 35,
+      "temperatureMax": 45,
+      "humidity": 30,
+      "pressureSeaLevel": 30.01,
+      "visibility": 17.8,
+      "windSpeed": 30.3,
+      "windDirection": 110,
+      "condition": "Windy"
+    }
+   ]
+}
