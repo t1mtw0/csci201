@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | YourWeather</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="forms.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-cont">
+        <div class="nav-links">
+          <ul class="nav-list" id="nav-signed-in">
+            <li class="nav-item">
+              <a href="/assign3/profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a id="logout-link" href="#" onclick="logout(); return false;"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <ul class="nav-list" id="nav-signed-out">
+            <li class="nav-item">
+              <a href="/assign3/register.html">Register</a>
+            </li>
+            <li class="nav-item"><a href="/assign3/login.html">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="reg-content">
+        <div class="reg-img-cont">
+          <img
+            class="reg-img"
+            src="assets/new-account-icon-256x256.png"
+            alt="New Account Icon"
+          />
+        </div>
+        <form action="javascript:void(0);" class="reg-form" id="reg-form">
+          <div class="reg-det">
+            <label class="un-label" for="un">Username</label>
+            <input
+              name="un"
+              class="reg-un"
+              id="un"
+              type="text"
+              placeholder="Enter username"
+              required
+            />
+            <label class="pw-label" for="pw">Password</label>
+            <input
+              name="pw"
+              class="reg-pw"
+              id="pw"
+              type="password"
+              placeholder="Enter password"
+              required
+            />
+            <label class="cpw-label" for="cpw">Confirm Password</label>
+            <input
+              name="cpw"
+              class="reg-cpw"
+              id="cpw"
+              type="password"
+              placeholder="Confirm password"
+              required
+            />
+          </div>
+          <div class="reg-err" id="reg-err">
+            <p class="err-text">
+              There was an error with your registration. Please try again.
+            </p>
+          </div>
+          <input class="reg-submit" type="submit" value="Register" />
+        </form>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>

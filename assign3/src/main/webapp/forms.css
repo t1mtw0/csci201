@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.login-img-cont,
+.reg-img-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.login-content,
+.reg-content {
+  width: 20rem;
+  background: rgba(21, 20, 20, 0.4);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.login-content {
+  margin-top: 15rem;
+}
+
+.reg-content {
+  margin-top: 10rem;
+}
+
+input {
+  border-radius: 0.5rem;
+}
+
+.login-form *,
+.reg-form * {
+  margin: 0.5rem 0;
+}
+
+.login-form label,
+.reg-form label {
+  text-align: center;
+  display: block;
+}
+
+.login-un,
+.login-pw,
+.reg-un,
+.reg-pw,
+.reg-cpw {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid grey;
+}
+
+.login-err, .reg-err {
+  display: none;
+  height: 3rem;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  background-color: red;
+}
+
+.err-text {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  width: 60%;
+}
+
+.login-submit,
+.reg-submit {
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: orange;
+  border: none;
+  cursor: pointer;
+}

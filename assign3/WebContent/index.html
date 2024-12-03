@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home | YourWeather</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="searchform.css" />
+    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="details.css" />
+    <link rel="icon" href="favicon.ico" />
+    <!-- prettier-ignore -->
+    <script>
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyAATIzaYABfW_U9MUV4lBR2m6zFRv51_58",
+        v: "weekly",
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div id="nav-cont" class="nav-cont">
+        <div class="nav-hidden"></div>
+        <form id="search" class="nav-search">
+          <div id="search-cont" class="nav-search-text-cont city">
+            <div id="search-text-cont">
+              <input
+                class="nav-search-text"
+                id="search-text"
+                name="search-text"
+                type="text"
+                placeholder="Search..."
+                required
+              />
+            </div>
+            <div id="search-text-img-cont" class="nav-search-text-img-cont">
+              <img
+                class="nav-search-text-img"
+                id="search-text-img"
+                src="assets/magnifying_glass.jpeg"
+                alt="Search Icon"
+              />
+            </div>
+            <div id="search-lat-cont">
+              <input
+                class="nav-search-text"
+                id="search-lat"
+                name="search-lat"
+                type="text"
+                placeholder="Latitude..."
+                pattern="-?\d*\.?\d+"
+                required
+              />
+            </div>
+            <div id="search-long-cont">
+              <input
+                class="nav-search-text"
+                id="search-long"
+                name="search-long"
+                type="text"
+                placeholder="Longitude..."
+                pattern="-?\d*\.?\d+"
+                required
+              />
+            </div>
+            <div id="search-map" class="nav-search-text-img-cont">
+              <div id="search-map-but">
+                <img
+                  class="nav-search-text-img"
+                  id="search-map-icon"
+                  src="assets/MapIcon.png"
+                  alt="Map Icon"
+                />
+              </div>
+              <div class="nav-map" id="map"></div>
+            </div>
+          </div>
+          <div class="nav-search-opts">
+            <div class="nav-opts-form">
+              <input
+                class="nav-search-opt-city"
+                id="nav-search-opt-city"
+                name="search-opt"
+                value="city"
+                type="radio"
+                onclick="searchChangeOpt(this)"
+                checked
+              />
+              <label for="nav-search-opt-city">City</label>
+              <input
+                class="nav-search-opt-ll"
+                id="nav-search-opt-ll"
+                name="search-opt"
+                value="ll"
+                type="radio"
+                onclick="searchChangeOpt(this)"
+              />
+              <label for="nav-search-opt-ll">Lat/Long</label>
+            </div>
+          </div>
+          <input type="submit" class="nav-search-submit" value="Display All" />
+        </form>
+        <div id="nav-links" class="nav-links">
+          <ul class="nav-list" id="nav-signed-in">
+            <li class="nav-item">
+              <a href="/assign3/profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a id="logout-link" href="#" onclick="logout(); return false;"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <ul class="nav-list" id="nav-signed-out">
+            <li class="nav-item">
+              <a href="/assign3/register.html">Register</a>
+            </li>
+            <li class="nav-item"><a href="/assign3/login.html">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <form id="search" class="search-cont">
+        <div class="search-img-cont">
+          <img class="search-img" src="assets/logo.png" alt="Logo" />
+        </div>
+        <div class="search">
+          <div id="search-cont" class="search-text-cont city">
+            <div id="search-text-cont">
+              <input
+                id="search-text"
+                class="search-text"
+                name="search-text"
+                type="text"
+                placeholder="Search..."
+                required
+              />
+            </div>
+            <div id="search-text-img-cont" class="search-text-img-cont">
+              <img
+                class="search-text-img"
+                id="search-text-img"
+                src="assets/magnifying_glass.jpeg"
+                alt="Search Icon"
+              />
+            </div>
+            <div id="search-lat-cont">
+              <input
+                class="search-text"
+                id="search-lat"
+                name="search-lat"
+                type="text"
+                placeholder="Latitude..."
+                pattern="-?\d*\.?\d+"
+                required
+              />
+            </div>
+            <div id="search-long-cont">
+              <input
+                class="search-text"
+                id="search-long"
+                name="search-long"
+                type="text"
+                placeholder="Longitude..."
+                pattern="-?\d*\.?\d+"
+                required
+              />
+            </div>
+            <div id="search-map" class="search-text-img-cont" hidden>
+              <div id="search-map-but">
+                <img
+                  class="search-text-img"
+                  id="search-map-icon"
+                  src="assets/MapIcon.png"
+                  alt="Map Icon"
+                />
+              </div>
+              <div class="search-map" id="map"></div>
+            </div>
+          </div>
+          <div class="search-opts">
+            <div class="opts-form">
+              <div class="search-opt">
+                <input
+                  class="search-opt-city"
+                  id="search-opt-city"
+                  name="search-opt"
+                  value="city"
+                  type="radio"
+                  onclick="searchChangeOpt(this)"
+                  checked
+                />
+                <label for="search-opt-city">City</label>
+              </div>
+              <div class="search-opt">
+                <input
+                  class="search-opt-ll"
+                  id="search-opt-ll"
+                  name="search-opt"
+                  value="ll"
+                  type="radio"
+                  onclick="searchChangeOpt(this)"
+                />
+                <label for="search-opt-ll">Lat/Long</label>
+              </div>
+            </div>
+          </div>
+          <div class="search-submit-cont">
+            <input type="submit" class="search-submit" value="Display All" />
+          </div>
+        </div>
+      </form>
+      <div id="hist-details" class="hist-details">
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-loc-img"
+            src="assets/planet-earth.png"
+            alt="Earth Icon"
+          />
+          <p id="det-loc" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-low-img"
+            src="assets/snowflake.png"
+            alt="Snowflake Icon"
+          />
+          <p id="det-low" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-high-img"
+            src="assets/sun.png"
+            alt="Sun Icon"
+          />
+          <p id="det-high" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-wind-img"
+            src="assets/wind.png"
+            alt="Wind Icon"
+          />
+          <p id="det-wind" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-prec-img"
+            src="assets/drop.png"
+            alt="Drop Icon"
+          />
+          <p id="det-prec" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-ll-img"
+            src="assets/LocationIcon.png"
+            alt="Location Icon"
+          />
+          <p id="det-ll" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-cur-img"
+            src="assets/thermometer.png"
+            alt="Thermometer Icon"
+          />
+          <p id="det-cur" class="det-text"></p>
+        </div>
+        <div class="det-item">
+          <img
+            class="det-img"
+            id="det-ss-img"
+            src="assets/sunrise-icon.png"
+            alt="Sunrise Icon"
+          />
+          <p id="det-ss" class="det-text"></p>
+        </div>
+      </div>
+      <div id="results-cont" class="results-cont">
+        <div id="results-meta" class="results-meta">
+          <h1 class="results-title">All Cities</h1>
+          <div id="results-sort" class="results-sort">
+            <label for="results-sort-opts">Sort by:</label>
+            <select
+              class="results-sort-opts"
+              name="results-sort-opts"
+              id="results-sort-opts"
+              onchange="updateResults()"
+            >
+              <option value="A-Z">City Name A-Z</option>
+              <option value="Z-A">City Name Z-A</option>
+              <option value="LDESC">Temp Low DESC</option>
+              <option value="LASC">Temp Low ASC</option>
+              <option value="HASC">Temp High ASC</option>
+              <option value="HDESC">Temp High DESC</option>
+            </select>
+          </div>
+        </div>
+        <div class="results-info">
+          <table id="results-tb" class="results-tb">
+            <tr id="results-h">
+              <th>City Name</th>
+              <th>Temp. Low</th>
+              <th>Temp. High</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="searchform.js"></script>
+    <script src="map.js"></script>
+  </body>
+</html>

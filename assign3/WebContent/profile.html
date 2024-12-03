@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | YourWeather</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-cont">
+        <div class="nav-links">
+          <ul class="nav-list" id="nav-signed-in">
+            <li class="nav-item">
+              <a href="/assign3/profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a id="logout-link" href="#" onclick="logout(); return false;"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <ul class="nav-list" id="nav-signed-out">
+            <li class="nav-item">
+              <a href="/assign3/register.html">Register</a>
+            </li>
+            <li class="nav-item"><a href="/assign3/login.html">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div id="prof-content" class="prof-content">
+        <h1 class="prof-header">
+          <p id="usern"></p>
+          &apos;s Search History
+        </h1>
+        <div id="prof-search-hist" class="prof-search-hist">
+          <div class="hist-list-cont">
+            <ul id="hist-list" class="hist-list"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

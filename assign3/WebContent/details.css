@@ -1,0 +1,19 @@
+img {
+  width: 30%;
+}
+
+.hist-details {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  width: 60rem;
+}
+
+.det-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

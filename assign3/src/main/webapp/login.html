@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | YourWeather</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="forms.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-cont">
+        <div class="nav-links">
+          <ul class="nav-list" id="nav-signed-in">
+            <li class="nav-item">
+              <a href="/assign3/profile.html">Profile</a>
+            </li>
+            <li class="nav-item"><a id="logout-link" href="#" onclick="logout(); return false;">Logout</a></li>
+          </ul>
+          <ul class="nav-list" id="nav-signed-out">
+            <li class="nav-item">
+              <a href="/assign3/register.html">Register</a>
+            </li>
+            <li class="nav-item"><a href="/assign3/login.html">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="login-content">
+        <div class="login-img-cont">
+          <img
+            class="login-img"
+            src="assets/Keychain_Locked@2x.png"
+            alt="Locked Keychain"
+          />
+        </div>
+        <form class="login-form" id="login-form">
+          <div class="login-det">
+            <div class="un-form">
+              <label class="un-label" for="un">Username</label>
+              <input
+                name="un"
+                class="login-un"
+                id="un"
+                type="text"
+                placeholder="Enter username"
+                required
+              />
+            </div>
+            <div class="pw-form">
+              <label class="pw-label" for="pw">Password</label>
+              <input
+                name="pw"
+                class="login-pw"
+                id="pw"
+                type="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+          </div>
+          <div class="login-err" id="login-err">
+            <p class="err-text">
+              There was an error with your login. Please try again.
+            </p>
+          </div>
+          <input class="login-submit" type="submit" value="Login" />
+        </form>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>
